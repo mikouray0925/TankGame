@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 1.75
     agentHeight: 1.5
-    agentSlope: 10
+    agentSlope: 2
     agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -1701,6 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2212,7 +2213,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 257117936644004445, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6518059293756768913, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_RootOrder
@@ -2276,27 +2277,27 @@ PrefabInstance:
       objectReference: {fileID: 1676515231908965048}
     - target: {fileID: 6518059293943892464, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000010753977
+      value: 0.0000000010753981
       objectReference: {fileID: 0}
     - target: {fileID: 6518059293943892464, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.3598827e-12
+      value: -1.3598827e-12
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.094070636
+      value: 0.09407066
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017538593
+      value: -0.00000001701228
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -8.3699914e-10
+      value: 8.1188206e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8108302506985838241, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
@@ -2556,6 +2557,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 499783173}
     m_Modifications:
+    - target: {fileID: 1978302206, guid: 2c876a7a330a23a43a3cf537f42d41d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588899572753221972, guid: 2c876a7a330a23a43a3cf537f42d41d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2910980548062993010, guid: 2c876a7a330a23a43a3cf537f42d41d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2717,6 +2726,10 @@ PrefabInstance:
       propertyPath: m_AdditionalVertexStreams
       value: 
       objectReference: {fileID: 74974379}
+    - target: {fileID: 3045036590109901368, guid: 8fead65a9ed43474f88ed5d1f7cd9bf8, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3112078893087005874, guid: 8fead65a9ed43474f88ed5d1f7cd9bf8, type: 3}
       propertyPath: m_Enabled
       value: 0

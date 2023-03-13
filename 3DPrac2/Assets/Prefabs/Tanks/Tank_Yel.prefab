@@ -617,7 +617,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1497,9 +1497,9 @@ MonoBehaviour:
   firePoint: {fileID: 6244034840149790680}
   fireCD: 1
   fireReady: 0
-  fireVolume: 0
+  fireVolume: 0.4
   fireSFX: {fileID: 8300000, guid: 40e71b0f7bd610849b40f150553f4702, type: 3}
-  reloadVolume: 0
+  reloadVolume: 0.3
   reloadSFX: {fileID: 8300000, guid: c3430338b7987524d96ce1f63db280cd, type: 3}
   fireVFX: {fileID: 55372981443225072}
 --- !u!114 &8289517165549984272
@@ -2536,6 +2536,9 @@ MonoBehaviour:
   alive: 1
   maxHealth: 10
   currentHealth: 10
+  brokenTanks: {fileID: 0}
+  brokenTank: {fileID: 0}
+  kill: 0
 --- !u!114 &6108028317080085171
 MonoBehaviour:
   m_ObjectHideFlags: 0
