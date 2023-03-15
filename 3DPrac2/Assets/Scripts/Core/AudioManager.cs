@@ -31,6 +31,11 @@ public class AudioManager : MonoBehaviour
         musicPlayer.Play();
     }
 
+    public void PlayBattleMusic() {
+        musicPlayer.clip = battleMusic;
+        musicPlayer.Play();
+    }
+
     public void PlayClickButtonSFX() {
         uiPlayer.PlayOneShot(clickButtonSFX);
     }

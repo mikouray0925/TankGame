@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject core;
     [SerializeField] OptionMenu optionMenu;
+    [SerializeField] EndGameWindow endGameWindow;
     public AudioManager audioManager;
 
     public static bool isPlaying {get; private set;}
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
         ChangeScene(gameSceneName);
         isPlaying = true;
         Time.timeScale = 1f;
+        audioManager.PlayBattleMusic();
+        endGameWindow.Hide();
     }   
 
     public void BackToMainMenu() {

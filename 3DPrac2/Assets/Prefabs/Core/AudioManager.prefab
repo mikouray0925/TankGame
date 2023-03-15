@@ -49,7 +49,7 @@ MonoBehaviour:
   musicPlayer: {fileID: 5929042722924003438}
   uiPlayer: {fileID: 5929042722924003439}
   mainMenuMusic: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
-  battleMusic: {fileID: 0}
+  battleMusic: {fileID: 8300000, guid: fac50070334bd7b4f9a28570ff1e58ad, type: 3}
   clickButtonSFX: {fileID: 8300000, guid: 05b517e735c2cec4abd77c440b4c76ad, type: 3}
 --- !u!82 &5929042722924003438
 AudioSource:

@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 7881789767675105752}
   optionMenu: {fileID: 7881789768144286861}
+  endGameWindow: {fileID: 6694302850645276576}
   audioManager: {fileID: 7881789766850311623}
 --- !u!1 &8154399655598750623
 GameObject:
