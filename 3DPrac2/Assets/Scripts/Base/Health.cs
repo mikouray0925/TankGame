@@ -54,6 +54,9 @@ public class Health : MonoBehaviour
         maxHealth     *= multiplier;
         currentHealth *= multiplier;
     }
+    public void Heal() {
+        hp = maxHp;
+    }
 
     protected virtual void OnHealthIncrease() {}
     protected virtual void OnHealthDecrease() {}

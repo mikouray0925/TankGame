@@ -87,7 +87,11 @@ Material:
     - _BumpScale: 1
     - _CUBEMAPP: 1
     - _CubemapPosition: 0
+<<<<<<< Updated upstream
     - _CubemapTransition: 0.81777775
+=======
+    - _CubemapTransition: 0.95111114
+>>>>>>> Stashed changes
     - _Cubemapp: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

@@ -102,7 +102,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+<<<<<<< Updated upstream
     - _AlphaMultiplier: 0.100071855
+=======
+    - _AlphaMultiplier: 0.014941862
+>>>>>>> Stashed changes
     - _Ambient: 1
     - _Displacement: 0.27863377
     - _DisplacementTiling: 18.586807
