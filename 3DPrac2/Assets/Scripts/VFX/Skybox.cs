@@ -8,11 +8,13 @@ public class Skybox : MonoBehaviour
     [SerializeField] private Material skyboxMaterial;
 
     [SerializeField] private Shader skyboxShader;
+    [SerializeField] private ParticleSystem RainParticles;
     [Range(1, 10)] public int timePerTick = 5;
     private Renderer _renderer;
     private Skybox skybox;
     private int ticktime;
     private int MaxTickTime;
+    private ParticleSystem rain = null;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +52,10 @@ public class Skybox : MonoBehaviour
         if (ticktime > MaxTickTime)
         {
             ticktime = 0;
+            
         }
         if (ticktime % timePerTick == 0) UpdateMaterialVariables(ticktime / timePerTick);
+        
     }
 
     void UpdateMaterialVariables(int tt)
@@ -113,6 +117,17 @@ public class Skybox : MonoBehaviour
         else
         {
             RenderSettings.ambientIntensity = (tt - 540f) / 100f;
+        }
+
+        RandomRainEvent();
+    }
+
+    private void RandomRainEvent(){
+        if(Random.Range(0, 720) < 1){
+            if(rain == null) {
+                rain = Instantiate(RainParticles, new Vector3(120, 75, 120), Quaternion.identity);
+                Debug.Log("Rain");
+            }
         }
     }
 

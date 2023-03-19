@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator ChangingSceneCoroutine(string sceneName) {
+        yield return new WaitForSeconds(1f);
         Scene currentScene = SceneManager.GetActiveScene();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (!asyncLoad.isDone) {

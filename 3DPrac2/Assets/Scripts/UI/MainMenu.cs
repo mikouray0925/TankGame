@@ -12,9 +12,11 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] AudioManager audioManager;
     [SerializeField] OptionMenu optionMenu;
 
-    [SerializeField] Button playButton;
-    [SerializeField] Button optionButton;
-    [SerializeField] Button quitButton;
+    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject optionButton;
+    [SerializeField] GameObject quitButton;
+
+    private bool onShrink = false;
 
     void Start() {
         core = GameObject.Find("Core(Clone)");
@@ -25,18 +27,23 @@ public class MainMenu : MonoBehaviour {
         optionMenu   = core.transform.Find("OptionMenuCanvas").GetComponent<OptionMenu>();
 
         audioManager.PlayMainMenuMusic();
+                    
 
-        playButton.onClick.AddListener(delegate {
+        playButton.GetComponent<Button>().onClick.AddListener(delegate {
             audioManager.PlayClickButtonSFX();
+            StartCoroutine(shrinkAllButtons());
             gameManager.playGame("Level0");
+            
         });
 
-        optionButton.onClick.AddListener(delegate {
+        optionButton.GetComponent<Button>().onClick.AddListener(delegate {
             audioManager.PlayClickButtonSFX();
-            optionMenu.Show();
+            StartCoroutine(shrinkAllButtons());
+            Invoke("showOptionMenu", 1f);
+            
         });
 
-        quitButton.onClick.AddListener(delegate {
+        quitButton.GetComponent<Button>().onClick.AddListener(delegate {
             audioManager.PlayClickButtonSFX();
             Application.Quit();
         });
@@ -44,5 +51,25 @@ public class MainMenu : MonoBehaviour {
 
     void Update() {
         
+    }
+
+    void showOptionMenu() {
+        optionMenu.Show();
+    }
+
+    private IEnumerator shrinkAllButtons() {
+        Debug.Log("Shrink all buttons");
+        if(!onShrink){
+            shrinkButtonTween(playButton);
+            shrinkButtonTween(optionButton);
+            shrinkButtonTween(quitButton);
+            onShrink = true;
+        }
+        yield return new WaitForSeconds (1);
+        onShrink = false;
+    }
+
+    void shrinkButtonTween(GameObject button) {
+        LeanTween.scale(button, Vector3.zero, 1f).setEase(LeanTweenType.easeInBack);
     }
 }
