@@ -37,6 +37,9 @@ public class Skybox : MonoBehaviour
             skyboxMaterial = new Material(skyboxShader);
             RenderSettings.skybox = skyboxMaterial;
         }
+        //initial values
+        skyboxMaterial.SetFloat("_CubemapTransition", 1.0f);
+        skyboxMaterial.SetFloat("_Exposure", 0.9f);
     }
 
     // Update is called once per frame

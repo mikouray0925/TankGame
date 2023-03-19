@@ -12,6 +12,7 @@ public class OptionMenu : MonoBehaviour
     [SerializeField] Slider effectVolumeSlider;
     [SerializeField] Slider uiVolumeSlider;
 
+    private GameObject rain;
     void Awake() {
     }
 
@@ -29,6 +30,12 @@ public class OptionMenu : MonoBehaviour
         musicVolumeSlider.value = audioManager.MusicVolume;
         effectVolumeSlider.value = AudioManager.EffectVolume;
         uiVolumeSlider.value = audioManager.UiVolume;
+
+        //find Instantiate object Rain particles
+        rain = GameObject.Find("Rain");
+        if (rain) {
+            rain.GetComponent<AudioSource>().Pause();
+        }
     }
 
     public void Hide() {
@@ -39,7 +46,12 @@ public class OptionMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+        if (rain) {
+            rain.GetComponent<AudioSource>().Pause();
+        }
     }
+    
 
     public void UpdateMusicVolume() {
         audioManager.MusicVolume = musicVolumeSlider.value;

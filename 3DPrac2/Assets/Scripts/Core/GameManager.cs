@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ChangingSceneCoroutine(string sceneName) {
         isChangingScene = true;
-        yield return new WaitForSeconds(1f);
+        if(sceneName == "Level0" ) yield return new WaitForSeconds(1f);
         Scene currentScene = SceneManager.GetActiveScene();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         while (!asyncLoad.isDone) {

@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyboxMaterial: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
   skyboxShader: {fileID: 4800000, guid: 7705790d9e8e16344ad5d7960c568904, type: 3}
-  RainParticles: {fileID: 0}
+  RainParticles: {fileID: 6024804902724901995, guid: 189086ecac0732f419e9f63c0935bd6a, type: 3}
   timePerTick: 6
 --- !u!4 &811885784
 Transform:
@@ -2694,15 +2694,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09407064
+      value: 0.094070636
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018072798
+      value: -0.000000017538593
       objectReference: {fileID: 0}
     - target: {fileID: 6518059294370320553, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 8.624932e-10
+      value: 8.3699914e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8108302506985838241, guid: 8162d902e8f3bd9408c319944fee04ed, type: 3}
       propertyPath: m_Enabled

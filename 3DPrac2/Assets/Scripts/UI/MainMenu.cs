@@ -17,14 +17,15 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] GameObject quitButton;
 
     private bool onShrink = false;
-
+    private GameObject OptionMenuCanvas;
     void Start() {
         core = GameObject.Find("Core(Clone)");
         if (!core) core = Instantiate(corePrefab);
 
         gameManager  = core.transform.Find("GameManager").GetComponent<GameManager>();
         audioManager = core.transform.Find("AudioManager").GetComponent<AudioManager>();
-        optionMenu   = core.transform.Find("OptionMenuCanvas").GetComponent<OptionMenu>();
+        OptionMenuCanvas = core.transform.Find("OptionMenuCanvas").gameObject;
+        optionMenu   = OptionMenuCanvas.GetComponent<OptionMenu>();
 
         audioManager.PlayMainMenuMusic();
                     
@@ -38,7 +39,7 @@ public class MainMenu : MonoBehaviour {
 
         optionButton.GetComponent<Button>().onClick.AddListener(delegate {
             audioManager.PlayClickButtonSFX();
-            // StartCoroutine(shrinkAllButtons());
+            //StartCoroutine(shrinkAllButtons());
             //Invoke("showOptionMenu", 1f);
             optionMenu.Show();
         });
