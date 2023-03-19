@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControlTank : MonoBehaviour 
+public class PlayerControlTank : MonoBehaviour
 {
     [Header ("References")]
     [SerializeField] private CameraBase thirdPersonCam;

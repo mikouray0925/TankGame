@@ -11,11 +11,11 @@ public class RainTime : MonoBehaviour
     private ParticleSystem rain = null;
     void Start()
     {
-        water = Instantiate(Water,new Vector3(130,0.0004f,130),Quaternion.identity);
+        water = Instantiate(Water,new Vector3(130,0,130),Quaternion.identity);
         water.transform.localScale = new Vector3(3f,3f,3f);
         HideWater();
 
-        int destroytime = Random.Range(11, 11);
+        int destroytime = Random.Range(30, 120);
 
         //enable water after 3s
         Invoke("showWater", 3f);
@@ -57,6 +57,8 @@ public class RainTime : MonoBehaviour
     }
     void showWater(){
         water.SetActive(true);
+        //move up 
+        water.transform.position = new Vector3(130,0.0004f,130);
     }
     void HideWater(){
         water.SetActive(false);
