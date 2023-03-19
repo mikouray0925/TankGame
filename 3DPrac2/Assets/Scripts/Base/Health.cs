@@ -50,6 +50,11 @@ public class Health : MonoBehaviour
         hp -= finalDamageVal;
     }
 
+    public void ScaleHealth(float multiplier) {
+        maxHealth     *= multiplier;
+        currentHealth *= multiplier;
+    }
+
     protected virtual void OnHealthIncrease() {}
     protected virtual void OnHealthDecrease() {}
     protected virtual void OnHealthBecomeZero() {}

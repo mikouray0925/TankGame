@@ -21,6 +21,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private MissilePool missilePool;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireCD;
+    [SerializeField] public  float fireCDMultiplier = 1f;
     [SerializeField] private bool fireReady;
 
     [Header ("SFX")]
@@ -54,12 +55,11 @@ public class TurretController : MonoBehaviour
             Missile missile = missilePool.GetMissile();
             missile.explosionVFX.damage = damage * damageMultiplier;
             missile.Launch(tank.GetComponent<Rigidbody>().velocity, firePoint, isAiming);
-            missilePool.GetMissile().Launch(tank.GetComponent<Rigidbody>().velocity, firePoint, isAiming);
             fireVFX.Clear();
             fireVFX.Play();
             canonAudioSource.PlayOneShot(fireSFX, fireVolume * AudioManager.EffectVolume);
             fireReady = false;
-            Invoke(nameof(ResetFire), fireCD);
+            Invoke(nameof(ResetFire), fireCD * fireCDMultiplier);
         }
     }
 
