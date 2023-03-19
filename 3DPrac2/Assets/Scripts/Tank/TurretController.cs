@@ -43,7 +43,7 @@ public class TurretController : MonoBehaviour
     void LateUpdate() {
         if (canonCam) {
             canonCam.MoveTo(canonCamPoint);
-            canonCam.LookAt(canonCamCenter, transform.up);
+            canonCam.LookAt(canonCamCenter, Vector3.up);
         }
     }
 
