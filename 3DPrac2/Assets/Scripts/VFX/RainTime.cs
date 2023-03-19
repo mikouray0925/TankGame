@@ -39,6 +39,7 @@ public class RainTime : MonoBehaviour
     void SmallerRain(){
         //lower emittion rate
         StartCoroutine(AudioFadeOut());
+        StartCoroutine(WaterFadeOut());
         var Emission = rain.emission;
         Emission.rateOverTime = 100;
     }
@@ -63,6 +64,14 @@ public class RainTime : MonoBehaviour
         //move up 
         while (waterMaterial.GetFloat("_AlphaMultiplier") < 0.1f){
             waterMaterial.SetFloat("_AlphaMultiplier", waterMaterial.GetFloat("_AlphaMultiplier") + Time.deltaTime / 80f);
+            yield return null;
+        }
+        
+    }
+    IEnumerator WaterFadeOut(){
+        //move up 
+        while (waterMaterial.GetFloat("_AlphaMultiplier") > 0f){
+            waterMaterial.SetFloat("_AlphaMultiplier", waterMaterial.GetFloat("_AlphaMultiplier") - Time.deltaTime / 45f);
             yield return null;
         }
         

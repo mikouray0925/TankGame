@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     void Update() {
+        /*
         if (GetAliveNum() <= 0) {
             EndGameWindow.Pop("EndGameCanvas", "You Win");
         }
+        */
     }
 
     public int GetAliveNum() {

@@ -39,7 +39,7 @@ public class PlayerControlTank : MonoBehaviour
             // turret.LiftCanon(mouseY);
         }
 
-        if (Input.GetMouseButtonDown(0)) turret.Fire();
+        if (Input.GetMouseButtonDown(0)) turret.Fire(isAiming);
         if (Input.GetKeyDown(KeyCode.H)) headlights.state = !headlights.state;
         if (Input.GetKeyDown(KeyCode.C)) minePlacer.PlaceMine();
 

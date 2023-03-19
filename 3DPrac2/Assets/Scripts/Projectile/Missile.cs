@@ -46,7 +46,7 @@ public class Missile : MonoBehaviour
         transform.forward = new Vector3(selfVelocity.x, rbody.velocity.y, selfVelocity.z);
     }
 
-    public void Launch(Vector3 baseVelocity, Transform firePnt) {
+    public void Launch(Vector3 baseVelocity, Transform firePnt, bool isAiming) {
         gameObject.SetActive(true);
         transform.position = firePnt.position;
         transform.forward  = firePnt.forward;
@@ -57,6 +57,15 @@ public class Missile : MonoBehaviour
         bcollider.enabled = true;
         rbody.isKinematic = false;
         rbody.useGravity = false;
+
+        //Aiming Damage Multiplier
+        if(isAiming){
+            explosionVFX.DamageSet(3f,0.9f);
+        }
+        else {
+            explosionVFX.DamageSet(2f,0.6f);
+        }
+
         Invoke(nameof(StartFalling), flyingTime); 
 
         exploded = false;

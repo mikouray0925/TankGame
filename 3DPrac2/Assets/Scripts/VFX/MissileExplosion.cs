@@ -10,4 +10,9 @@ public class MissileExplosion : Explosion
     void OnParticleSystemStopped() {
         missile.Deactivate();
     }
+
+    public void DamageSet(float damage, float damageRadius) {
+        this.damage = damage;
+        this.damageRadius = damageRadius;
+    }
 }

@@ -156,7 +156,7 @@ public class AIControlTank : MonoBehaviour
         if (Physics.Linecast(turret.firePosition, endPos, out RaycastHit info, targetLayer)) {
             if (info.collider.tag == targetTag) {
                 if (fireReady) {
-                    turret.Fire();
+                    turret.Fire(false);
                     fireReady = false;
                     Invoke(nameof(GetReadyToFire), fireCD);
                 }

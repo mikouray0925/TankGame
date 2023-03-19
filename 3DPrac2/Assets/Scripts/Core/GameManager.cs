@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject core;
     [SerializeField] OptionMenu optionMenu;
     [SerializeField] EndGameWindow endGameWindow;
+    [SerializeField] HoverTooltipManager upgradeWindow;
+    [SerializeField] GameObject AllEnemies;
     public AudioManager audioManager;
 
     public static bool isPlaying {get; private set;}
     public static CameraBase currentCam;
     public static bool isChangingScene;
     
+    private int currentLevel = 0;
     void Awake() {
     }
 
@@ -24,6 +27,13 @@ public class GameManager : MonoBehaviour
             }
             else {
                 optionMenu.Show();
+            }
+        }
+
+        if(AllEnemies.GetComponent<EnemyManager>().GetAliveNum() <= 0) {
+            if(currentLevel< 10){
+                upgradeWindow.Show();
+                currentLevel++;
             }
         }
     }
@@ -81,4 +91,5 @@ public class GameManager : MonoBehaviour
     public static void QuitApp() {   
         Application.Quit();
     }
+
 }
