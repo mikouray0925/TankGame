@@ -28,6 +28,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2108209072281184279, guid: 8fead65a9ed43474f88ed5d1f7cd9bf8, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108209072281184279, guid: 8fead65a9ed43474f88ed5d1f7cd9bf8, type: 3}
       propertyPath: fireVolume
       value: 0
       objectReference: {fileID: 0}

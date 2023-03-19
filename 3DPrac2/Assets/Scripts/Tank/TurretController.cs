@@ -15,6 +15,8 @@ public class TurretController : MonoBehaviour
     [SerializeField] private Transform canonCamCenter;
     
     [Header ("Attack")]
+    [SerializeField] private float damage = 2f;
+    [SerializeField] public  float damageMultiplier = 1f;
     [SerializeField] private float maxCanonAngle;
     [SerializeField] private MissilePool missilePool;
     [SerializeField] private Transform firePoint;
@@ -49,7 +51,9 @@ public class TurretController : MonoBehaviour
 
     public void Fire() {
         if (fireReady) {
-            missilePool.GetMissile().Launch(tank.GetComponent<Rigidbody>().velocity, firePoint);
+            Missile missile = missilePool.GetMissile();
+            missile.explosionVFX.damage = damage * damageMultiplier;
+            missile.Launch(tank.GetComponent<Rigidbody>().velocity, firePoint);
             fireVFX.Clear();
             fireVFX.Play();
             canonAudioSource.PlayOneShot(fireSFX, fireVolume * AudioManager.EffectVolume);

@@ -10,7 +10,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private float lifeTime;
 
     [Header ("VFX")]
-    [SerializeField] private MissileExplosion explosionVFX;
+    [SerializeField] public MissileExplosion explosionVFX;
 
     private Vector3 selfVelocity;
     private Vector3 velocity;

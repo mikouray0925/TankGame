@@ -13,7 +13,7 @@ public class Mine : MonoBehaviour
     [SerializeField] LayerMask triggerLayers;
 
     [Header ("Explosion")]
-    [SerializeField] MineExplosion explosion;
+    [SerializeField] public MineExplosion explosion;
     [SerializeField] float explosionDelay;
 
     public bool setted {get; private set;}

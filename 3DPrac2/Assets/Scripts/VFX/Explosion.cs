@@ -5,7 +5,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [Header ("Damage")]
-    [SerializeField] float damage;
+    [SerializeField] public float damage;
     [SerializeField] float damageRadius;
     [SerializeField] float causeDamageDelay;
     [SerializeField] float force;
