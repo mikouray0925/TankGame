@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
     void LateUpdate() {
         slider.maxValue = health.maxHp;
         slider.value = health.hp;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        if(Time.timeScale==1)
+            fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }

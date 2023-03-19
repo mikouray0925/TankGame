@@ -54,8 +54,15 @@ public class Health : MonoBehaviour
         maxHealth     *= multiplier;
         currentHealth *= multiplier;
     }
+    public void SetMaxHealth(int newMaxHealth) {
+        maxHealth     = newMaxHealth;
+    }
     public void Heal() {
         hp = maxHp;
+    }
+
+    public void Revive(){
+        alive = true;
     }
 
     protected virtual void OnHealthIncrease() {}

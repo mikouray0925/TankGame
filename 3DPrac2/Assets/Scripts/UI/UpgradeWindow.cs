@@ -40,26 +40,31 @@ public class UpgradeWindow : MonoBehaviour
 
         HealthUpgrade.onClick.AddListener(delegate{
             healthUpgradeCount++;
-            Tank.GetComponent<TankHealth>().ScaleHealth((healthUpgradeCount*0.2f + 1f)  * 20);
+            Tank.GetComponent<TankHealth>().SetMaxHealth(Mathf.RoundToInt((healthUpgradeCount*0.2f + 1f)  * 20));
             Tank.GetComponent<TankHealth>().Heal();
             Hide();
         });
 
         DamageUpgrade.onClick.AddListener(delegate{
             damageUpgradeCount++;
-            Player.GetComponent<TurretController>().damageMultiplier = damageUpgradeCount*0.1f + 1f;
+            Tank.GetComponentInChildren<TurretController>().damageMultiplier = 1f + damageUpgradeCount*0.1f;
             Hide();
         });
 
         CooldownUpgrade.onClick.AddListener(delegate{
             cooldownUpgradeCount++;
-            Player.GetComponent<TurretController>().fireCDMultiplier = 1f - cooldownUpgradeCount*0.05f;
+            Tank.GetComponentInChildren<TurretController>().fireCDMultiplier = 1f - cooldownUpgradeCount*0.05f;
             Hide();
         });
     }
 
     public void Hide(){
-        gameObject.SetActive(false);
+        Debug.Log(Time.timeScale);
         Time.timeScale = 1f;
+        if (GameManager.isPlaying) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        gameObject.SetActive(false);
     }
 }

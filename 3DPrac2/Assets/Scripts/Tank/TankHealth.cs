@@ -6,7 +6,7 @@ public class TankHealth : Health
 {
     [SerializeField] Transform brokenTanks;
     [SerializeField] GameObject brokenTank;
-    [SerializeField] bool kill;
+    [SerializeField] public bool kill;
 
     void Update() {
         if (kill) {

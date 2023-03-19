@@ -18,7 +18,7 @@ public class TurretController : MonoBehaviour
     [SerializeField] private float damage = 2f;
     [SerializeField] public  float damageMultiplier = 1f;
     [SerializeField] private float maxCanonAngle;
-    [SerializeField] private MissilePool missilePool;
+    [SerializeField] public MissilePool missilePool;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireCD;
     [SerializeField] public  float fireCDMultiplier = 1f;

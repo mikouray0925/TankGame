@@ -9,9 +9,12 @@ public class RainTime : MonoBehaviour
     [SerializeField] private GameObject Water;
     private GameObject water;
     private ParticleSystem rain = null;
+    private AudioSource soundEffect;
     [SerializeField] private Material waterMaterial;
     void Start()
     {
+        Debug.Log("RainTime Start");
+        soundEffect = GetComponent<AudioSource>();
         water = Instantiate(Water,new Vector3(130,0,130),Quaternion.identity);
         water.transform.localScale = new Vector3(3f,3f,3f);
         HideWater();
@@ -33,7 +36,8 @@ public class RainTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Time.timeScale == 0) soundEffect.Pause();
+        else soundEffect.UnPause();
     }
 
     void SmallerRain(){
@@ -51,7 +55,7 @@ public class RainTime : MonoBehaviour
 
     IEnumerator AudioFadeOut(){
         //fade out rain sound effect
-        AudioSource soundEffect = GetComponent<AudioSource>();
+        
         while (soundEffect.volume > 0) {
             soundEffect.volume -= Time.deltaTime / 4.5f;
             yield return null;
