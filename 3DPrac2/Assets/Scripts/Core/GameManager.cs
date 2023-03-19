@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject core;
     [SerializeField] OptionMenu optionMenu;
     [SerializeField] EndGameWindow endGameWindow;
-    [SerializeField] HoverTooltipManager upgradeWindow;
-    [SerializeField] GameObject AllEnemies;
+    [SerializeField] private GameObject UpgradeWindowPrefab;
+    private GameObject AllEnemies;
     public AudioManager audioManager;
-
+    public GameObject UpgradeWindowCanvas;
     public static bool isPlaying {get; private set;}
     public static CameraBase currentCam;
     public static bool isChangingScene;
@@ -26,14 +26,20 @@ public class GameManager : MonoBehaviour
                 optionMenu.Hide();
             }
             else {
-                optionMenu.Show();
+                //optionMenu.Show();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
 
-        if(AllEnemies.GetComponent<EnemyManager>().GetAliveNum() <= 0) {
+        if(AllEnemies!=null && AllEnemies.GetComponent<EnemyManager>().GetAliveNum() <= 0) {
+            if(UpgradeWindowCanvas == null) {
+                UpgradeWindowCanvas = Instantiate(UpgradeWindowPrefab);
+            }
             if(currentLevel< 10){
-                upgradeWindow.Show();
-                currentLevel++;
+                Debug.Log("Showing upgrade window");
+                UpgradeWindowCanvas.GetComponent<UpgradeWindow>().Show();
+                //currentLevel++;
             }
         }
     }
@@ -84,6 +90,7 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.MoveGameObjectToScene(core, SceneManager.GetSceneByName(sceneName));
+        AllEnemies = GameObject.Find("AllEnemy");
         SceneManager.UnloadSceneAsync(currentScene);
         isChangingScene = false;
     }

@@ -276,7 +276,9 @@ MonoBehaviour:
   core: {fileID: 7881789767675105752}
   optionMenu: {fileID: 7881789768144286861}
   endGameWindow: {fileID: 6694302850645276576}
+  UpgradeWindowPrefab: {fileID: 8959911040397691925, guid: b7ba2ec8aba9cdf409e54d1f6ce94b52, type: 3}
   audioManager: {fileID: 7881789766850311623}
+  UpgradeWindowCanvas: {fileID: 0}
 --- !u!1 &8154399655598750623
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,9 @@ public class TurretController : MonoBehaviour
             Missile missile = missilePool.GetMissile();
             missile.explosionVFX.damage = damage * damageMultiplier;
             missile.Launch(tank.GetComponent<Rigidbody>().velocity, firePoint, isAiming);
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
             fireVFX.Clear();
             fireVFX.Play();
             canonAudioSource.PlayOneShot(fireSFX, fireVolume * AudioManager.EffectVolume);
