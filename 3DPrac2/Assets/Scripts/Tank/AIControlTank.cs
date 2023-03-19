@@ -51,8 +51,10 @@ public class AIControlTank : MonoBehaviour
     [SerializeField] private Transform antiColBoxRB;
     [SerializeField] private bool drawBoxGizmos;
 
+    Vector3 spawnPos;
     
     void Awake() {
+        spawnPos = transform.position;
         destination = transform.position;
     }
 
@@ -209,8 +211,8 @@ public class AIControlTank : MonoBehaviour
             targetPos += transform.forward * Random.Range(randomRangeMinZ, randomRangeMaxZ);
             if (ComputeNewDestination(targetPos)) return;
         }
-
-        print("Failed to find next patrolling point.");
+        ComputeNewDestination(spawnPos);
+        print("Failed to find next patrolling point. Back to spawn pos.");
     }
 
     void ComputeNewDestinationForChasing() {
