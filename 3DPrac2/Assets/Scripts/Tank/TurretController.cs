@@ -49,11 +49,12 @@ public class TurretController : MonoBehaviour
         }
     }
 
-    public void Fire() {
+    public void Fire(bool isAiming) {
         if (fireReady) {
             Missile missile = missilePool.GetMissile();
             missile.explosionVFX.damage = damage * damageMultiplier;
-            missile.Launch(tank.GetComponent<Rigidbody>().velocity, firePoint);
+            missile.Launch(tank.GetComponent<Rigidbody>().velocity, firePoint, isAiming);
+            missilePool.GetMissile().Launch(tank.GetComponent<Rigidbody>().velocity, firePoint, isAiming);
             fireVFX.Clear();
             fireVFX.Play();
             canonAudioSource.PlayOneShot(fireSFX, fireVolume * AudioManager.EffectVolume);

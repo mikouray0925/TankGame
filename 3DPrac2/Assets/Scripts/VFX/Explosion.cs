@@ -6,7 +6,8 @@ public class Explosion : MonoBehaviour
 {
     [Header ("Damage")]
     [SerializeField] public float damage;
-    [SerializeField] float damageRadius;
+
+    [SerializeField] public float damageRadius;
     [SerializeField] float causeDamageDelay;
     [SerializeField] float force;
 
@@ -68,4 +69,6 @@ public class Explosion : MonoBehaviour
             transform.forward = value;
         }
     }
+
+
 }
