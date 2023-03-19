@@ -4827,6 +4827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Water: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  waterMaterial: {fileID: 2100000, guid: a5f2339f242f6cc41a982ec55ea3c201, type: 2}
 --- !u!82 &7803765460679105509
 AudioSource:
   m_ObjectHideFlags: 0

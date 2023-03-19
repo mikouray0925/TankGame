@@ -35,6 +35,8 @@ Properties {
 	_GSpeed ("Wave Speed", Vector) = (1.2, 1.375, 1.1, 1.5)
 	_GDirectionAB ("Wave Direction", Vector) = (0.3 ,0.85, 0.85, 0.25)
 	_GDirectionCD ("Wave Direction", Vector) = (0.1 ,0.9, 0.5, 0.5)
+	
+	_AlphaMultiplier ("Alpha multiplier", Range (0.0, 1.0)) = 0.1
 }
 
 
@@ -115,6 +117,9 @@ CGINCLUDE
 	
 	// foam
 	uniform float4 _Foam;
+
+	// addition alpha multiplier
+	uniform float _AlphaMultiplier;
 	
 	// shortcuts
 	#define PER_PIXEL_DISPLACE _DistortParams.x
@@ -354,7 +359,7 @@ CGINCLUDE
 
 		half4 baseColor = _BaseColor;
 		baseColor = lerp(baseColor, _ReflectionColor, saturate(refl2Refr * 2.0));
-		baseColor.a = saturate(2.0 * refl2Refr + 0.5) * 0.1;
+		baseColor.a = saturate(2.0 * refl2Refr + 0.5) * _AlphaMultiplier;
 
 		baseColor.rgb += spec * _SpecularColor.rgb;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);

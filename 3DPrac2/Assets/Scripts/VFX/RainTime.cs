@@ -9,6 +9,7 @@ public class RainTime : MonoBehaviour
     [SerializeField] private GameObject Water;
     private GameObject water;
     private ParticleSystem rain = null;
+    [SerializeField] private Material waterMaterial;
     void Start()
     {
         water = Instantiate(Water,new Vector3(130,0,130),Quaternion.identity);
@@ -18,7 +19,7 @@ public class RainTime : MonoBehaviour
         int destroytime = Random.Range(30, 120);
 
         //enable water after 3s
-        Invoke("showWater", 3f);
+        StartCoroutine("showWater");
         //Make rain smaller after destoy time
         rain = GetComponent<ParticleSystem>();
         Invoke("SmallerRain", destroytime);
@@ -55,14 +56,20 @@ public class RainTime : MonoBehaviour
             yield return null;
         }
     }
-    void showWater(){
+    IEnumerator showWater(){
+        yield return new WaitForSeconds(3f);
         water.SetActive(true);
-        //move up 
         water.transform.position = new Vector3(130,0.0004f,130);
+        //move up 
+        while (waterMaterial.GetFloat("_AlphaMultiplier") < 0.1f){
+            waterMaterial.SetFloat("_AlphaMultiplier", waterMaterial.GetFloat("_AlphaMultiplier") + Time.deltaTime / 80f);
+            yield return null;
+        }
+        
     }
     void HideWater(){
         water.SetActive(false);
-        
+        waterMaterial.SetFloat("_AlphaMultiplier", 0f);
     }
     void DestoryWater(){
         Destroy(water);
