@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static bool isPlaying {get; private set;}
     public static CameraBase currentCam;
+    public static bool isChangingScene;
     
     void Awake() {
     }
@@ -58,10 +59,13 @@ public class GameManager : MonoBehaviour
     }  
 
     public void ChangeScene(string sceneName) {
+        if (isChangingScene) return;
+        if (SceneManager.GetActiveScene().name == sceneName) return;
         StartCoroutine(ChangingSceneCoroutine(sceneName));
     }
 
     IEnumerator ChangingSceneCoroutine(string sceneName) {
+        isChangingScene = true;
         yield return new WaitForSeconds(1f);
         Scene currentScene = SceneManager.GetActiveScene();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
@@ -71,6 +75,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.MoveGameObjectToScene(core, SceneManager.GetSceneByName(sceneName));
         SceneManager.UnloadSceneAsync(currentScene);
+        isChangingScene = false;
     }
 
     public static void QuitApp() {   

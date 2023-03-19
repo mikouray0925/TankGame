@@ -38,9 +38,9 @@ public class MainMenu : MonoBehaviour {
 
         optionButton.GetComponent<Button>().onClick.AddListener(delegate {
             audioManager.PlayClickButtonSFX();
-            StartCoroutine(shrinkAllButtons());
-            Invoke("showOptionMenu", 1f);
-            
+            // StartCoroutine(shrinkAllButtons());
+            //Invoke("showOptionMenu", 1f);
+            optionMenu.Show();
         });
 
         quitButton.GetComponent<Button>().onClick.AddListener(delegate {
