@@ -126,7 +126,7 @@ public class Skybox : MonoBehaviour
     }
 
     private void RandomRainEvent(){
-        if(Random.Range(0, 720) < 1){
+        if(Random.Range(0, 2) < 1){
             if(rain == null) {
                 rain = Instantiate(RainParticles, new Vector3(120, 75, 120), Quaternion.identity);
                 Debug.Log("Rain");

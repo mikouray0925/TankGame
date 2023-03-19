@@ -4826,6 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9535cb5f1f29943bc62372ebe62ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Water: {fileID: 100006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
 --- !u!82 &7803765460679105509
 AudioSource:
   m_ObjectHideFlags: 0
